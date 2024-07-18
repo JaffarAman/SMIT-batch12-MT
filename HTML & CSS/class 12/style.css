@@ -1,0 +1,48 @@
+/* h1{
+    font-family: monospace;
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* .para {
+  font-weight: bold;
+  font-style: italic;
+} */
+
+.dolorSpan {
+  font-weight: bold;
+  font-style: italic;
+  /* text-decoration: underline double red; */
+  text-decoration: overline;
+}
+
+.para2 {
+  /* text-transform: uppercase; */
+  /* text-transform: lowercase; */
+  text-transform: capitalize;
+  font-size: 24px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.para3 {
+  line-height: 50px;
+  word-spacing: 18px;
+}
+.loremSpan {
+  letter-spacing: 20px;
+}
+
+.para4 {
+  text-align: left;
+}
+
+.para6 {
+  text-align: justify;
+}
+
+.heading2 {
+  /* text-shadow: 50px 50px 10px  red; */
+  text-shadow: 5px 5px 10px red;
+}

@@ -1,0 +1,79 @@
+.para1 span {
+  color: red;
+  font-size: 32px;
+}
+
+.para2::first-letter {
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.para3::first-line {
+  color: red;
+}
+/* 
+.btn{
+    background-color: red;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.btn:hover{
+        background-color: orange;
+        color: black;
+} */
+
+a:link {
+  color: red;
+}
+
+a:visited {
+  color: blue;
+}
+
+.btn:active {
+  color: purple;
+  background: black;
+}
+
+input:focus {
+  background-color: red;
+}
+
+/* a{
+    color: red;
+} */
+
+.container1 {
+  background-color: red;
+  /* width: 200px; */
+  /* width: 75%; */
+  /* width: 50%; */
+  /* width: 700px; */
+  /* width: 50%; */
+  /* width: 300px; */
+  /* height:100% ; */
+
+  /* max-width: ; */
+  /* min-width: ; */
+  /* max-width: 500px; */
+  /* min-width: 500px; */
+}
+
+.card {
+  background-color: yellow;
+  max-width: 500px;
+  min-width: 300px;
+
+  /* height: 300px; */
+    /* max-height: 300px; */
+    /* min-height: 300px; */
+    max-height: 300px;
+    overflow: scroll;
+}

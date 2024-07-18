@@ -1,0 +1,62 @@
+/* tag  Selector */
+/* h1{
+    color:red;
+} */
+
+/* ID selector */
+/* #heading2{
+    color: red;
+} */
+
+/* class selector */
+/* .heading { */
+/* color: red; */
+/* background-color: rgb(205, 97, 85 ); */
+/* background-color: #32229b; */
+/* color: red;
+  color: #fff;
+  color: #000;
+  color: rgb(0, 255, 0); */
+/* color: hsl(204, 64%, 44%); */
+/* background-color: rgba(255, 0, 0, 0.5); */
+/* opacity: 0.5;
+  background-color: red; */
+
+/* } */
+
+/* Universal Selector */
+/* *{
+    color: red;
+} */
+
+/* Type Selector */
+/* li{
+    color: purple;
+} */
+
+/* class Selector */
+/* .className{ */
+/* prop */
+/* } */
+
+/* id Selector */
+
+/* #id_name{
+    prop
+} */
+
+/* #listId{
+    color: white;
+    background-color: orange;
+
+} */
+
+
+
+li {
+  background-color: green;
+}
+
+.listClass {
+    background-color: red;
+  }

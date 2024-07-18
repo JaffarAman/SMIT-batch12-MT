@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  background-color: red;
+  /* width: 500px; */
+  /* max-width: 500px; */
+  /* width: 100%;     */
+  /* min-width: 500px; */
+  /* max-width: 700px; */
+  /* min-width: 400px; */
+  /* height: 200px; */
+  /* max-height: 300px; */
+  /* overflow: auto; */
+  /* min-height: 300px; */
+}
+
+.container {
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+/* child selector */
+.container p {
+  border: 1px solid red;
+  /* margin-left: 50px;
+  padding-left:20px ; */
+  /* padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px; */
+  /* padding: 20px; apply 4 direction same value */
+  /* padding: 10px 20px; */
+  /* padding: 10px 20px 0px 50px; */
+}
+.container2 {
+  background-color: red;
+  /* width: 50%; */
+  /* height: 200px; */
+  /* margin-left: auto;
+    margin-right: auto; */
+  /* margin: 0 auto; */
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.box1 {
+  /* width: 300px; */
+  width: 49%;
+  height: 300px;
+  background-color: red;
+  /* display: inline; */
+  display: inline-block;
+}
+
+.box2 {
+  width: 49%;
+  height: 300px;
+  /* border: 10px solid black; */
+  display: inline-block;
+  background-color: blue;
+}
+
+.box3 {
+  background-color: orange;
+  width: 200px;
+  /* display: inline-block; */
+  visibility: collapse;
+}
+.box4 {
+  background-color: pink;
+}
+
+.box10 {
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* .box10 img{
+    text-align: left !important;    
+} */
+
+.box100 {
+  width: 200px;
+  height: 200px;
+  background-color: hotpink;
+  margin: 10px auto;
+  /* border-radius: 16px; */
+  border-radius: 50%;
+}

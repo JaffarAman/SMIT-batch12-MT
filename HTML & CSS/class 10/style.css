@@ -1,0 +1,25 @@
+/* h1{
+    color : red;
+    background-color: black;
+    
+} */
+
+/* id */
+#h2 {
+  color: red;
+  background-color: black;
+}
+
+/* class */
+/* Selector or Declaration */
+.heading3 {
+  color: blue; /* Property */
+  background-color: black;
+}
+
+
+
+
+p{
+    color: blue;
+}
