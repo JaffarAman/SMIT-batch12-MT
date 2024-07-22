@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.list {
+  /* list-style: decimal; */
+  /* list-style:none; */
+  /* list-style: none; */
+  /* list-style: lower-roman; */
+  /* list-style-image: url("https://cdn-icons-png.flaticon.com/512/541/541415.png"); */
+  background-color: red;
+  /* list-style-position: inside; */
+  list-style: inside none;
+}
+
+.list li {
+  margin: 20px;
+  background-color: orange;
+}
+.navbar {
+  background-color: white;
+  border: 1px solid red;
+  /* display: inline-block; */
+  text-align: center;
+}
+.navbar li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.navbar li img {
+  width: 50px;
+  height: 50px;
+}
+
+.myTable {
+  width: 100%;
+  /* margin: 0 50px; */
+  border: 1px solid black;
+  /* border-collapse: collapse; */
+  border-spacing: 20px;
+  empty-cells: hide;
+}
+
+.myTable td {
+  border: 1px solid red;
+}
+.myTable tr {
+  /* border: 1px solid red; */
+  /* background-color: red; */
+  /* padding: 50px; */
+  /* margin: 50px; */
+}
+
+.tableContainer {
+  padding: 10px;
+}
+
+.myTable2 tr {
+  /* background-color: red; */
+  /* border: 1px solid red;
+    color: red;
+    margin: 10px;
+    padding: 20px; */
+  /* background-color: red; */
+  background-color: lightgreen;
+}
+.myTable2 th {
+  padding: 20px;
+  background-color: grey;
+}
+.myTable2 td {
+  padding: 20px;
+  text-align: center;
+  /* background-color: orange; */
+}
+
+.myTable2 {
+  border: 1px solid black;
+  width: 100%;
+  /* padding: 10px; */
+  /* margin: 20px; */
+  border-collapse: collapse;
+}
+
+.myTable2 td:hover {
+  background-color: green;
+}
+
+.myTable2 tr:hover {
+  background-color: lightgray;
+}
+
+.formContainer fieldset {
+  width: 60%;
+  margin: 0px auto;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border: none;
+  border-radius: 8px;
+  padding: 20px 0;
+  /* background-color: transparent; */
+  backdrop-filter: blur(10px);
+}
+
+.loginForm {
+  margin: 20px;
+}
+
+.loginForm label {
+  display: block;
+}
+.loginForm input {
+  width: 100%;
+}
+
+.formContainer legend {
+  text-align: center;
+}
+
+.inputContainer {
+  margin: 10px 0;
+}
+
+.inputContainer button {
+  width: 100%;
+  background-color: purple;
+  border: none;
+  color: white;
+  padding: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.inputContainer button:hover {
+  background-color: white;
+  border: 1px solid purple;
+  color: purple;
+}
+.inputContainer input {
+  outline: none;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid purple;
+}
+.inputContainer select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid purple;
+  outline: none;
+}
+
+.formContainer {
+  height: 100vh;
+  /* background-color: red; */
+  background-image: url("./painting-mountain-lake-with-mountain-background_188544-9126.avif");
+  /* background-image: url("./pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg"); */
+  /* background-image: url("./pexels-mikebirdy-120049.jpg"); */
+  padding: 20px 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+}
