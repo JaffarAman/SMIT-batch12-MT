@@ -1,0 +1,104 @@
+/* *{
+    color: red;
+} */
+
+.box1 {
+  border: 1px solid red;
+}
+
+/* .box1 h1 {
+  color: red;
+} */
+
+/* child selector  > */
+/* 
+.box1 > h1 {
+  color: orange;
+} */
+
+/* .box1 h1 {
+  color: orange;
+} */
+
+/* .heading1,
+p {
+  color: red;
+  background-color: orange;
+  font-size: 30px;
+} */
+
+/* width */
+
+.box2 {
+  background-color: red;
+  width: 1000px;
+}
+
+.box2 h1 {
+  background-color: green;
+  /* width: 200px; */
+  width: 50%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.heading100 {
+  color: red;
+  background-color: orange;
+  width: 700px;
+}
+
+.smit {
+  font-size: 150px;
+}
+
+@media only screen and (max-width: 700px) {
+  .heading100 {
+    background-color: black;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .heading100 {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .smit {
+    font-size: 50px;
+    background-color: red;
+  }
+}
+
+.box100 {
+  background-color: red;
+  /* width: 50%; */
+  width: 300px;
+  /* display: inline-block; */
+}
+
+.box200 {
+  background-color: orange;
+  /* width: 50%; */
+  width: 300px;
+  /* display: inline-block; */
+}
+
+.box300 {
+  background-color: purple;
+  width: 300px;
+  /* display: inline-block; */
+}
+
+.parent {
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid red;
+  height: 500px;
+  align-items: center;
+}

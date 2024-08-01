@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.box1 {
+  background-color: red;
+  /* width: 200px; */
+  /* width: 50%; */
+  /* flex: 1; */
+  /* flex-shrink: 1; */
+  width: 300px;
+}
+.box2 {
+  width: 300px;
+
+  background-color: orange;
+  /* width: 50%; */
+  /* flex: 3; */
+}
+
+.box3 {
+  width: 300px;
+
+  /* flex: 1; */
+  background-color: purple;
+}
+
+.parent {
+  /* height: 500px; */
+  /* display: flex; */
+  /* border: 1px solid red; */
+  /* justify-content: center; */
+  /* justify-content: space-between; */
+  /* justify-content: space-around; */
+  /* justify-content: space-evenly; */
+  /* justify-content:center; */
+  /* align-items: center; */
+  /* align-items: end; */
+  /* align-items: start; */
+  display: flex;
+  align-items: start;
+  /* gap: 20px; */
+  width: 80%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.parent2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.parent2  div {
+    width: 300px;
+}
+.box100 {
+  background-color: green;
+}
+
+.box200 {
+  background-color: blue;
+}
+
+.box300 {
+  background-color: purple;
+}
