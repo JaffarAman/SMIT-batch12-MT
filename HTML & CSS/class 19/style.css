@@ -1,0 +1,143 @@
+.box1 {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  /* align-self: end; */
+  /* flex-shrink: 0; */
+  /* order: 2; */
+}
+.box2 {
+  background-color: green;
+  width: 200px;
+  height: 200px;
+  /* align-self: flex-start; */
+  /* flex-shrink: 0; */
+  /* order: 3; */
+}
+.box3 {
+  background-color: blue;
+  width: 200px;
+  height: 200px;
+  /* flex-shrink: 0; */
+  /* order: 1; */
+}
+
+/* .parent {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center; */
+/* justify-content: center; */
+/* gap: 20px;
+  border: 1px solid red; */
+/* min-height: 100vh; */
+/* align-items: center; */
+/* flex-wrap: wrap; */
+/* } */
+/* 123
+312 */
+/* * { */
+/* font-family: "Roboto", sans-serif; */
+/* font-family: "Poppins", sans-serif;
+} */
+/* h1 { */
+/* font-family: ; */
+/* font-weight: ; */
+/* } */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  padding: 0 50px;
+}
+
+.topBar {
+  background-color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 50px;
+}
+
+.topBar ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+.topBar button {
+  border: none;
+  background-color: white;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 50px;
+  align-items: center;
+  border-bottom: 2px solid #eeeeee;
+  /* border-bottom: 2px solid black; */
+}
+
+.header img {
+  width: 200px;
+  height: 50px;
+}
+
+.header ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 30px;
+}
+
+.header ul li:hover {
+  cursor: pointer;
+  border-bottom: 1px solid green;
+}
+
+.donateNow {
+  background-color: #0d6db7;
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  width: 135px;
+  transition: all ease 0.6s;
+}
+
+.donateNow:hover {
+  cursor: pointer;
+  scale: 1.2;
+}
+.banner1{
+    display: flex;
+    align-items: center;
+}
+.banner1content{
+    width: 50%;
+    display: flex;
+    flex-direction: column  ;
+    gap: 20px;
+    align-items: start;
+}
+
+.banner1content h1 {
+    font-size: 40px;
+}
+
+.banner1content h6{
+    font-size: 24px;
+}
+.banner1Image{
+    width: 50%;
+
+}
+
+.banner1Image img {
+    height: 600px;
+}
