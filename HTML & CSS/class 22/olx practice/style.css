@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.hover span:hover {
+    /* color: #002f34; */
+    color: red;
+    cursor: pointer;
+}
+.form-search input{
+    border: none;
+    outline: none;
+    padding: 0 90px;
+}
+.form-search{
+    border: 1px solid black;
+}
+.form-search i{
+    cursor: pointer;
+    background-color: #002f34 ;
+    /* height: 40px;
+    width: 40px; */
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+.login{
+    color: black;
+    border: none;
+    background-color: white;
+    padding: 6px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+.sell{
+    border: 2px solid blue;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+.lists li:hover{
+    cursor: pointer;
+    font-weight: 600;
+}
