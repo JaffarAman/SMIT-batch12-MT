@@ -1,0 +1,8 @@
+notes
+
+slice(starting point , ending point)
+slice(index number , length)
+slice(0,2)
+slice(1)
+slice(1 , -1)
+slice(-1)
