@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  border: 1px solid black;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.container input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  outline: none;
+  text-align: right;
+  
+}
+
+.container .body {
+  width: 100%;
+  border-top: 1px solid grey;
+}
+
+.body table {
+    width: 100%;
+    /* border-collapse: collapse; */
+}
+table td{
+    background-color: lightgray;
+    text-align: center;
+    padding: 8px;
+    cursor: pointer;
+}
+.equal{
+    background-color: green;
+}

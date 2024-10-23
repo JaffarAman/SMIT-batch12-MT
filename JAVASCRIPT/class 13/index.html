@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <button onclick="greet('click 1')" > Click 1</button>
+    <button onclick="greet()" > Click 2</button> -->
+
+    <!-- <input type="text"  placeholder="Enter your name" 
+        id="userName"
+        > -->
+    <!-- value="" -->
+    <!-- <button onclick="getUserName()" >Submit</button>
+    <button onclick="setUserName()" >SEt Value</button> -->
+
+    <!-- <input type="text" placeholder="Enter Your email"
+    id="email">
+    <input type="password" placeholder="Enter Your password" id="password" >
+
+    <button onclick="showPassword()" >Show Passord</button>
+    <button onclick="hidePassword()" >Hide Passord</button>
+    <button onclick="login()" >  Login</button>
+ -->
+
+    <div class="container">
+      <div>
+        <input type="text" disabled placeholder="Numbers..." id="input" />
+      </div>
+
+      <div class="body">
+        <table>
+          <tr>
+            <td onclick="inputValue(7)"  >7</td>
+            <td onclick="inputValue(8)" >8</td>
+            <td onclick="inputValue(9)" >9</td>
+            <td onclick="inputValue('-')" >-</td>
+          </tr>
+          <tr>
+            <td onclick="inputValue(4)"  >4</td>
+            <td onclick="inputValue(5)"  >5</td>
+            <td onclick="inputValue(6)"  >6</td>
+            <td onclick="inputValue('*')"  >*</td>
+          </tr>
+          <tr>
+            <td onclick="inputValue(1)" >1</td>
+            <td onclick="inputValue(2)" >2</td>
+            <td onclick="inputValue(3)" >3</td>
+            <td onclick="inputValue('/')" >/</td>
+          </tr>
+          <tr>
+            <td onclick="inputValue(0)" >0</td>
+            <td onclick="inputValue('00')" >00</td>
+            <td onclick="inputValue('.')" >.</td>
+            <td onclick="inputValue('+')" >+</td>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td onclick="allClear()" >AC</td>
+            <td onclick="result()" class="equal" colspan="2">=</td>
+            <!-- <td></td> -->
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script src="app.js"></script>
+</html>
