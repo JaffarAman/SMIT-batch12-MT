@@ -1,0 +1,16 @@
+#nameError {
+  color: red;
+  display: none;
+}
+
+.smallImg {
+  /* width: 300px;
+  height: 200px; */
+  border: 2px solid red;
+  padding: 8px;
+}
+
+.bigImg {
+  width: 300px;
+  height: 300px;
+}
