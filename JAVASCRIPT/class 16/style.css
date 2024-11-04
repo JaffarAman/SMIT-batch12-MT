@@ -1,0 +1,12 @@
+.smallText{
+    font-size: 12px;
+}
+
+.bigText{
+    font-size: 50px;
+}
+
+.commonClass{
+    color: red;
+    background-color: black;
+}
