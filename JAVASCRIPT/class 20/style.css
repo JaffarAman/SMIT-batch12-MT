@@ -1,0 +1,8 @@
+.timeContainer{
+    display: flex;
+    gap: 30px;
+
+}
+.timeContainer > div{
+    border: 1px solid red;
+}
