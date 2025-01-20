@@ -1,0 +1,98 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6e7e85, #f4f7f6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Signup container */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Signup box styling */
+.signup-box {
+    background-color: #fff;
+    width: 350px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.signup-box h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: 600;
+    color: #4CAF50;
+}
+
+/* Textbox input styling */
+.textbox {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.textbox input:focus {
+    border-color: #4CAF50;
+}
+
+/* Button styling */
+.btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+/* Login link */
+.login-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-link a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

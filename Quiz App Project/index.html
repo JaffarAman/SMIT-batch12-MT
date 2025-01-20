@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Welcome Back!</h2>
+            <div >
+                <div class="textbox">
+                    <input type="text" placeholder="Username" name="username" required>
+                </div>
+                <div class="textbox">
+                    <input type="password" placeholder="Password" name="password" required>
+                </div>
+               
+                <button onclick="loginHandler()" class="btn">Login</button>
+                <p class="signup-link">
+                    Don't have an account? 
+                    <a href="./auth/Signup/signup.html">Sign Up</a>
+                </p>
+                <p class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="module" src="./auth/Login/login.js"></script>
+</html>
