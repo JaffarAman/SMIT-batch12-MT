@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link rel="stylesheet" href="./createQuiz.css">
+</head>
+
+<body>
+
+    <!-- navbar start -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">QuizMaster</a>
+            <ul class="navbar-links">
+                <li><a href="../dashboard/dashboard.html">Home</a></li>
+                <li><a href="#">Create Quiz</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- navbar end -->
+
+
+    <div class="container">
+        <h1>Create Quiz</h1>
+
+        <div>
+            <!-- Quiz Title Section -->
+            <div class="form-group">
+                <label for="quizTitle">Title</label>
+                <input type="text" id="quizTitle" name="quizTitle" placeholder="Enter Quiz Title" required>
+            </div>
+
+            <!-- Quiz Category Section -->
+            <div class="form-group">
+                <label for="quizCategory">Category</label>
+                <input type="text" id="quizCategory" name="quizCategory" placeholder="Enter Quiz Category" required>
+            </div>
+
+            <!-- Question Creation Section -->
+            <div class="form-group">
+                <h3>Create Questions</h3>
+
+                <!-- Question Text -->
+                <label for="questionText">Question Text</label>
+                <input type="text" id="questionText" name="questionText" placeholder="Enter Question Text" required>
+
+                <!-- Options -->
+                <label for="option1">Option 1</label>
+                <input type="text" id="option1" name="option1" placeholder="Option 1" required>
+
+                <label for="option2">Option 2</label>
+                <input type="text" id="option2" name="option2" placeholder="Option 2" required>
+
+                <label for="option3">Option 3</label>
+                <input type="text" id="option3" name="option3" placeholder="Option 3" required>
+
+                <label for="option4">Option 4</label>
+                <input type="text" id="option4" name="option4" placeholder="Option 4" required>
+
+                <!-- Correct Answer -->
+                <label for="correctAnswer">Correct Answer</label>
+                <input type="text" id="correctAnswer" name="correctAnswer" placeholder="Enter Correct Answer" required>
+                <button onclick="handleQuestions()">ADD QUES</button>
+            </div>
+
+            <!-- Submit Button -->
+            <button onclick="createQuizHandler()" class="submit-btn">Create Quiz</button>
+        </div>
+    </div>
+</body>
+<script type="module" src="createQuiz.js"></script>
+
+</html>

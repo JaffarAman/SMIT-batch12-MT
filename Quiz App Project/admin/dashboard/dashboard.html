@@ -5,10 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./dashboard.css">
 </head>
 
 <body>
-    <h1>ADMIN DASHBOARD</h1>
+    <!-- navbar start -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">QuizMaster</a>
+            <ul class="navbar-links">
+                <li><a href="../dashboard/dashboard.html">Home</a></li>
+                <li><a href="../createQuiz/createQuiz.html">Create Quiz</a></li>
+                <li><a href="../quizList/quizList.html">Quiz Listing</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- navbar end -->
+
 </body>
 <script type="module">
     import { authCheck } from "../../utils/utils.js"
