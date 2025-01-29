@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Client Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
 </head>
+
 <body>
-    <h1>USER DASHBOARD</h1>
+    <div id="dashboard">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <h2>Dashboard</h2>
+            <ul id="quizList">
+                <li><a href="#" onclick="showQuizResults('Quiz 1')">Dashboard</a></li>
+
+                <li><a href="#" onclick="showQuizResults('Quiz 1')">Scores</a></li>
+
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div id="mainContent">
+            <h1>Quiz Listing</h1>
+
+            <div id="cardListingContainer">
+
+                <!-- <div class="quiz-card">
+                    <h3 class="quiz-title">General Knowledge Quiz</h3>
+                    <p class="quiz-description">Test your knowledge with a series of questions on general topics.</p>
+                    <button class="quiz-status-btn active">Active</button>
+                </div> -->
+
+
+
+            </div>
+
+        </div>
+    </div>
+
 </body>
+<script type="module" src="dashboard.js"></script>
+
 </html>
