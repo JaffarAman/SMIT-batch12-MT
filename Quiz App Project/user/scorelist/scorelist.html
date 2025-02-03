@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard</title>
+    <link rel="stylesheet" href="scorelist.css">
+</head>
+
+<body onload="getScoreListing()">
+    <div id="dashboard">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <h2>Dashboard</h2>
+            <ul id="quizList">
+                <li><a href="../dashboard/dashboard.html" onclick="showQuizResults('Quiz 1')">Dashboard</a></li>
+
+                <li><a href="../scorelist/scorelist.html" onclick="showQuizResults('Quiz 1')">Scores</a></li>
+
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div id="mainContent">
+            <h1>Score Listing</h1>
+
+
+            <table border="1px" id="scoreTable">
+                <tr>
+                    <td>No#</td>
+                    <td>Name</td>
+                    <td>Quiz Name</td>
+                    <td>Score</td>
+                    <td>Wrong Ans</td>
+                    <td>Total Question</td>
+                    <td>Percentage%</td>
+                </tr>
+
+                <!-- <tr>
+                    <td>1</td>
+                    <td>JAFFAR</td>
+                    <td>HTML</td>
+                    <td>10</td>
+                    <td>5</td>
+                    <td>15</td>
+                    <td>75%</td>
+                </tr> -->
+            </table>
+
+        </div>
+    </div>
+
+</body>
+<script type="module">
+    import { authUserCheck } from "../../utils/utils.js"
+    authUserCheck()
+</script>
+<script src="scorelist.js" type="module"></script>
+
+</html>

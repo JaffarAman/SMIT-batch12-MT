@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #resultContainer {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,13 +31,31 @@
         </div>
         <div class="footer">
             <p> <span id="currentQuesCount">1</span> / <span id="totalCount">10</span> </p>
-            <button onclick="nextQues()" id="nextBtn" >Next</button>
+            <button onclick="nextQues()" id="nextBtn">Next</button>
         </div>
 
 
-    </div>
-</body>
 
+
+
+    </div>
+
+    <div id="resultContainer">
+
+        <ul id="scores" >
+            <li  >Quiz Name:</li>
+            <li>Score:</li>
+            <li>Wrong ans:</li>
+            <li>Total Ques:</li>
+        </ul>
+
+    </div>
+
+</body>
+<script type="module" > 
+    import {authUserCheck} from "../../utils/utils.js"
+    authUserCheck()
+</script>
 <script type="module" src="quizApp.js"></script>
 
 </html>

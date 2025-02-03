@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./dashboard.css">
 </head>
 
-<body>
+<body onload="getScoreListing();getQuizList()" >
     <!-- navbar start -->
     <nav class="navbar">
         <div class="navbar-container">
@@ -24,10 +24,55 @@
 
     <!-- navbar end -->
 
+
+    <!-- <button onclick="userDashboard()" >USER Dashboard</button> -->
+
+    <h1>QUIZ SCORE</h1>
+
+
+    <div id="mainContent">
+        <h1>Score Listing</h1>
+            <select name="" id="quizDropdown" onchange="filterQuiz(this)" >
+                <!-- <option value="">JS</option>
+                <option value="">HTML</option>
+                <option value="">AD. HTML</option> -->
+            </select>
+
+        <table border="1px" id="scoreTable">
+            <tr>
+                <td>No#</td>
+                <td>Name</td>
+                <td>Quiz Name</td>
+                <td>Score</td>
+                <td>Wrong Ans</td>
+                <td>Total Question</td>
+                <td>Percentage%</td>
+            </tr>
+
+            <!-- <tr>
+                <td>1</td>
+                <td>JAFFAR</td>
+                <td>HTML</td>
+                <td>10</td>
+                <td>5</td>
+                <td>15</td>
+                <td>75%</td>
+            </tr> -->
+        </table>
+
+    </div>
+
 </body>
 <script type="module">
-    import { authCheck } from "../../utils/utils.js"
-    authCheck()
+    import { authAdminCheck } from "../../utils/utils.js"
+    authAdminCheck()
+
+    const userDashboard = ()=>{
+            window.location.href = "../../user/dashboard/dashboard.html"
+    }
+    window.userDashboard = userDashboard
+
+
 </script>
 <script src="dashboard.js" type="module"></script>
 

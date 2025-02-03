@@ -16,7 +16,7 @@
             <ul id="quizList">
                 <li><a href="#" onclick="showQuizResults('Quiz 1')">Dashboard</a></li>
 
-                <li><a href="#" onclick="showQuizResults('Quiz 1')">Scores</a></li>
+                <li><a href="../scorelist/scorelist.html" onclick="showQuizResults('Quiz 1')">Scores</a></li>
 
             </ul>
         </div>
@@ -41,6 +41,10 @@
     </div>
 
 </body>
+<script type="module">
+    import { authUserCheck } from "../../utils/utils.js"
+    authUserCheck()
+</script>
 <script type="module" src="dashboard.js"></script>
 
 </html>
