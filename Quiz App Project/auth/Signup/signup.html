@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="sigup.css">
 </head>
+
 <body>
 
     <div class="signup-container">
@@ -19,14 +21,19 @@
                     <input type="text" placeholder="Last Name" name="lastName" id="lastName" required>
                 </div>
                 <div class="textbox">
-                    <input type="tel" placeholder="Mobile Number" name="mobileNumber"  id="mobileNumber" required pattern="[0-9]{10}">
+                    <input type="tel" placeholder="Mobile Number" name="mobileNumber" id="mobileNumber" required
+                        pattern="[0-9]{10}">
                 </div>
                 <div class="textbox">
-                    <input type="email" placeholder="Email" name="email"  id="email" required>
+                    <input type="email" placeholder="Email" name="email" id="email" required>
                 </div>
                 <div class="textbox">
-                    <input type="password" placeholder="Password" name="password"  id="password" required>
+                    <input type="password" placeholder="Password" name="password" id="password" required>
                 </div>
+
+                <input type="file" id="profileImage" >
+
+
                 <button onclick="signupHandler()" class="btn">Sign Up</button>
                 <p class="login-link">
                     Already have an account? <a href="../../index.html">Login</a>
@@ -36,5 +43,8 @@
     </div>
 
 </body>
-<script src="signup.js" type="module"   ></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="signup.js" type="module"></script>
+
 </html>

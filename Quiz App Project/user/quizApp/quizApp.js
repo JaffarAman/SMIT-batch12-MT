@@ -134,3 +134,6 @@ const onsubmit = async () => {
 window.onsubmit = onsubmit
 window.checkAns = checkAns
 window.nextQues = nextQues
+
+
+
