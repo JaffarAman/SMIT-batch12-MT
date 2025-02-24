@@ -1,0 +1,15 @@
+# BACKEND TOPICS
+
+nodejs
+v8 engine
+Hello World Nodejs
+npm init  / npm init -y
+package.json
+npm start - project start cmd
+modules
+type="module"
+File System Module
+http -> http server
+url
+
+
