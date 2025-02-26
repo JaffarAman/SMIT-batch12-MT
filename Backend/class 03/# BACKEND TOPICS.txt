@@ -12,4 +12,16 @@ File System Module
 http -> http server
 url
 
+nodemon
+express
+params
+query params
+
+Get , Post
+Basic API
+create CRUD API
+
+
+
+
 
