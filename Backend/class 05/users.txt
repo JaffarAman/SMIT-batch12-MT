@@ -1,0 +1,1 @@
+[{"fullName":"Jaffar Aman","email":"jaffaraman@gmail.com","password":"12345","id":"6cb315dc-fa3a-4e7c-a1ae-6f1453b9babb"},{"fullName":"Jaffar","email":"jaffar@gmail.com","password":"12345","id":"15b26609-8156-4bc3-b14d-c9888a72b853"},{"fullName":"Muhammad sufiyan","email":"sufiyan@gmail.com","password":"12345"}]
