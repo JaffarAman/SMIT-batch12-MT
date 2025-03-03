@@ -1,0 +1,44 @@
+# BACKEND TOPICS
+
+CLASS 01 or CLass 02
+nodejs
+v8 engine
+Hello World Nodejs
+npm init  / npm init -y
+package.json
+npm start - project start cmd
+modules
+type="module"
+File System Module
+http -> http server
+url
+
+Class 03
+nodemon
+express
+params
+query params
+
+Class 04
+Get , Post
+Basic API
+create CRUD API
+postman
+
+
+Class 05
+Data Mangement (CRUD) using File System (FS)
+uuid()
+body parser
+
+Class 06
+.gitignore
+node_modules
+package.json -    "dependencies": {
+      "express": "^4.21.2",
+      "uuid": "^11.1.0"
+    }
+
+
+
+
