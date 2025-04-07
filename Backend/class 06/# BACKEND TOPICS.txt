@@ -39,6 +39,26 @@ package.json -    "dependencies": {
       "uuid": "^11.1.0"
     }
 
+cors()
+API calling on Frontend side
+
+
+Class 07
+MongoDb Atlas 
+create MongoDB cluster Database
+mongoose
+Create CRUD on DB
+
+
+
+class 08
+Revision Class 07
+TOdo APP
+
+
+
+
+
 
 
 
