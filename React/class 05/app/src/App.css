@@ -1,0 +1,29 @@
+.product-card {
+  width: 320px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+.product-info {
+  padding: 16px;
+}
+.product-title {
+  font-size: 20px;
+  margin: 0 0 8px;
+  font-weight: bold;
+}
+.product-price {
+  color: #27ae60;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.product-description {
+  font-size: 14px;
+  color: #555;
+}
