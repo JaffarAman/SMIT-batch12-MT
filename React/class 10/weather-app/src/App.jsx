@@ -53,10 +53,12 @@ function App() {
 
   useEffect(() => {
     // fetchData()
+    getUserLocation()
   }, [])
 
-  const [cityName, setCityName] = useState("karachi")
+  const [cityName, setCityName] = useState("lahore")
   const [apiResponse, setApiResponse] = useState(null)
+  const [userLocation, setUserLocation] = useState("")
 
   const fetchData = async () => {
     try {
@@ -74,6 +76,53 @@ function App() {
     console.log(":event", event)
     fetchData()
   }
+
+
+  const getUserLocation = () => {
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    }
+
+    function success(position) {
+      console.log("success", position)
+      // fetchDataByLocation(position)
+      setUserLocation(position)
+      // fetchDataByLocation()
+    }
+
+    function error() {
+      console.log("error")
+      fetchData()
+    }
+
+
+
+  }
+
+
+  useEffect(() => {
+    if (userLocation) {
+      fetchDataByLocation()
+    }
+  }, [userLocation])
+
+  const fetchDataByLocation = async (position) => {
+    try {
+      console.log("userLocation", userLocation)
+
+      // const { latitude, longitude } = position.coords
+      const { latitude, longitude } = userLocation.coords
+
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${APIKEY}&units=metric`)
+      console.log("response", response.data)
+      setApiResponse(response.data)
+    } catch (error) {
+      console.log("error: ", error.message)
+    }
+  }
+
+
   return (
     <div>
 
@@ -92,10 +141,10 @@ function App() {
         <h1> {new Date().toDateString()} </h1>
         <h1>City : {apiResponse?.name}  </h1>
         <h1>Weather: {apiResponse?.main?.temp} </h1>
-          <img src={`https://openweathermap.org/img/w/${apiResponse?.weather[0]?.icon}.png`}
-          
+        <img src={`https://openweathermap.org/img/w/${apiResponse?.weather[0]?.icon}.png`}
+
           alt="" />
-      
+
       </div>
 
     </div>
