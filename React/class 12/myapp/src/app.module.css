@@ -1,0 +1,11 @@
+.navlink {
+    color: black;
+    text-decoration: none;
+    padding: 0 20px;
+}
+
+.activeNavlink {
+    color: red;
+    font-weight: bold;
+    text-decoration: underline;
+}
