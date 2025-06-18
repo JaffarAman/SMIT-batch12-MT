@@ -57,9 +57,11 @@ const CreateBlogPage = () => {
             subject: blogSubject,
             desc: blogDesc,
             private: isBlogPrivate,
-            image: url,
+            image: url || null,
             userId: localStorage.getItem("user")
-        }
+        }   
+
+        console.log("blogObj" , blogObj)
 
         await addDoc(collection(db, "blogs"), blogObj)
         ToastAlert({
