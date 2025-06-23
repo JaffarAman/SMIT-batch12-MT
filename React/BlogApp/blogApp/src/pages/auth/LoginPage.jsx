@@ -2,8 +2,9 @@ import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import { ToastAlert } from "../../utils";
+import { doc, getDoc } from "firebase/firestore";
 
 const LoginPage = () => {
     const [email, setEmail] = useState("")
@@ -14,9 +15,21 @@ const LoginPage = () => {
     const loginHandler = async () => {
         try {
             const response = await signInWithEmailAndPassword(auth, email, password)
-            console.log("response", response)
+            const uid = response.user.uid
+
+            // get single user data
+            const res = await getDoc(doc(db, "users", uid))
+            const userData = res.data()
+
+            if (userData.type === "admin") {
+                navigate("/admin/dashboard")
+            } else {
+                navigate("/blogs")
+            }
+
+            console.log("response user", res.data())
             localStorage.setItem("user", response.user.uid)
-            navigate("/blogs")
+            localStorage.setItem("userObj", JSON.stringify(userData))
 
             ToastAlert({
                 type: "success",

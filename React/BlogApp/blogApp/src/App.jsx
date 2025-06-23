@@ -9,6 +9,10 @@ import MyBlogPage from './pages/MyBlogPage'
 import CreateBlogPage from './pages/CreateBlogPage'
 import PrivateRoute from './routes/PrivateRoute'
 import AuthRoute from './routes/AuthRoute'
+import AdminDashboard from './pages/admin/adminDashboard'
+import AdminRoutes from './routes/AdminRoutes'
+import AllUser from './pages/admin/AllUser'
+import AllBlog from './pages/admin/AllBlog'
 
 function App() {
 
@@ -30,6 +34,12 @@ function App() {
           <Route path="/createblogs" element={<CreateBlogPage />} />
         </Route>
 
+
+        <Route element={<AdminRoutes />} >
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<AllUser />} />
+          <Route path="/admin/blogs" element={<AllBlog />} />
+        </Route>
 
 
 

@@ -41,15 +41,23 @@ const CreateBlogPage = () => {
 
         let url;
         if (blogImage) {
+            // const formData = new FormData()
+            // formData.append("file", blogImage)
+            // formData.append("upload_preset", "smit12")
+            // const res = await axios.post(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`, formData)
+            //     .catch((err) => {
+            //         console.log("err", err.message)
+            //     })
+            // console.log("res", res.data.secure_url)
+            // url = res.data.secure_url
+
             const formData = new FormData()
             formData.append("file", blogImage)
-            formData.append("upload_preset", "smit12")
-            const res = await axios.post(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`, formData)
-                .catch((err) => {
-                    console.log("err", err.message)
-                })
-            console.log("res", res.data.secure_url)
-            url = res.data.secure_url
+            formData.append("upload_preset", "testing")
+            const response = await axios.post(`https://api.cloudinary.com/v1_1/dbync9n3e/image/upload`, formData)
+            // console.log("response image" , response)
+            // return
+            url = response.data.secure_url
         }
 
         const blogObj = {
@@ -59,9 +67,9 @@ const CreateBlogPage = () => {
             private: isBlogPrivate,
             image: url || null,
             userId: localStorage.getItem("user")
-        }   
+        }
 
-        console.log("blogObj" , blogObj)
+        console.log("blogObj", blogObj)
 
         await addDoc(collection(db, "blogs"), blogObj)
         ToastAlert({

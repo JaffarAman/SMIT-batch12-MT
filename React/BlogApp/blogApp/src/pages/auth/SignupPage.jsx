@@ -8,9 +8,10 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Bounce, toast } from "react-toastify";
+import { doc, setDoc } from "firebase/firestore";
 
 const Signup = () => {
   const [fullName, setFullName] = useState("");
@@ -23,10 +24,10 @@ const Signup = () => {
 
   const signupHandler = async () => {
     // Implement signup logic here, e.g., using Firebase Auth
-    console.log("Signup button clicked");
-    console.log("Full Name:", fullName);
-    console.log("Email:", email);
-    console.log("Password:", password);
+    // console.log("Signup button clicked");
+    // console.log("Full Name:", fullName);
+    // console.log("Email:", email);
+    // console.log("Password:", password);
     try {
       setIsLoading(true);
       const response = await createUserWithEmailAndPassword(
@@ -34,6 +35,20 @@ const Signup = () => {
         email,
         password
       );
+
+      const uid = response.user.uid
+      const userObj = {
+        fullName,
+        email,
+        isActive: true,
+        type: "user"
+      }
+
+      // save user data on firestore
+      // user collection  ->  userID  ->  userDoc/ userObj 
+      await setDoc(doc(db, "users", uid), userObj)
+
+
       setIsLoading(false);
       console.log("User signed up successfully:", response.user);
 
