@@ -1,6 +1,6 @@
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, db } from "../../firebase";
 import { ToastAlert } from "../../utils";
@@ -9,6 +9,7 @@ import { doc, getDoc } from "firebase/firestore";
 const LoginPage = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+
 
     const navigate = useNavigate()
 
@@ -20,6 +21,14 @@ const LoginPage = () => {
             // get single user data
             const res = await getDoc(doc(db, "users", uid))
             const userData = res.data()
+            console.log("userData", userData)
+            if (!userData.isActive) {
+                ToastAlert({
+                    type: "error",
+                    message: "Your account is not active!"
+                })
+                return
+            }
 
             if (userData.type === "admin") {
                 navigate("/admin/dashboard")
