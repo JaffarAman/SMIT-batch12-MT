@@ -5,6 +5,10 @@ import './App.css'
 import { Login, Signup } from './pages'
 import { Route, Routes } from 'react-router-dom'
 import AdminDashboard from './pages/dashboards/admin'
+import VendorDashboard from './pages/vendor/dashboard'
+import Restaurant from './pages/vendor/restaurant'
+import VendorMenu from './pages/vendor/menu'
+import VendorOrders from './pages/vendor/order'
 // import Login from './pages/auth/login'
 
 function App() {
@@ -19,6 +23,14 @@ function App() {
 
     {/* ADMIN ROUTES */}
     <Route path='/admindashboard' element={<AdminDashboard />} />
+
+
+
+    {/* //Vendor routes */}
+    <Route path='/vendor-dashboard' element={<VendorDashboard />} />
+    <Route path='/vendor-restaurant' element={<Restaurant />} />
+    <Route path='/vendor-menu' element={<VendorMenu />} />
+    <Route path='/vendor-orders' element={<VendorOrders />} />
 
     </Routes>
     </>

@@ -9,6 +9,7 @@ export const authMiddleware = async (req, res, next) => {
         console.log("isVerify", isVerify)
 
         if (isVerify?.id) {
+            req.user = isVerify 
             next()
         } else {
             res.json({

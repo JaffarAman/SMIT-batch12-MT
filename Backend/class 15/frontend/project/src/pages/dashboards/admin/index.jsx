@@ -9,9 +9,9 @@ const AdminDashboard = () => {
             const payload = {}
             const response = await axios.post(`${BASE_URL}/create`, payload , {
                 headers :{
-                    Authorization : `Bearar ${Cookies.get("token")}`
+                    Authorization : `Bearer ${Cookies.get("token")}`
                 }
-            })
+            } )
             console.log("response" , response)
         })()
     }, [])
