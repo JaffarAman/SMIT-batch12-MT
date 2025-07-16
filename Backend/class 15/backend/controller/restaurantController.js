@@ -36,7 +36,7 @@ export const createRestaurantController = async (req, res) => {
 }
 
 
-export const getVendorRestaurant  = async (req, res) => {
+export const getVendorRestaurant = async (req, res) => {
     const userId = req.user.id
     console.log("userId", userId)
     const data = await RestaurantModel.find({ createBy: userId, isDeleted: false })
@@ -45,7 +45,7 @@ export const getVendorRestaurant  = async (req, res) => {
 }
 
 
-export const deleteVendorRes =  async (req, res) => {
+export const deleteVendorRes = async (req, res) => {
     const params = req.params
     console.log("params", params.id)
     const updateObj = {
@@ -53,5 +53,63 @@ export const deleteVendorRes =  async (req, res) => {
     }
     await RestaurantModel.findByIdAndUpdate(params.id, updateObj)
     res.json({ message: "Deleted Succssfully!", status: true })
+
+}
+
+
+export const updateVendorRestaurant = async (req, res) => {
+    try {
+
+        const body = req.body
+        const { id } = req.params
+        console.log("body", body)
+        const data = await RestaurantModel.findByIdAndUpdate(id, body, { new: true })
+        res.json({
+            status: true,
+            message: "updated",
+            data
+        })
+
+        // const 
+
+
+
+
+    } catch (error) {
+        res.json({
+            status: false,
+            message: error.message || "something went wrong",
+            data: null
+        })
+    }
+}
+
+export const vendorRestaurantStatus = async (req, res) => {
+    const body = req.body
+    const { id } = req.params
+    console.log("body , body", body)
+
+    const restaurantData = await RestaurantModel.findById(id)
+    console.log("restaurantData", restaurantData)
+
+    if (!restaurantData.isApproved) {
+        return res.json({
+            status: false,
+            message: "restaurant not approved, Please wait for admin approval!"
+        })
+    }
+
+    const updateObj = {
+        isOpen: body.isOpen
+    }
+    await RestaurantModel.findByIdAndUpdate(id, updateObj)
+    return res.json({
+        status: true,
+        message: "restaurant status updated!"
+    })
+
+
+
+
 
 }

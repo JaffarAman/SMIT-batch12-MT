@@ -1,5 +1,5 @@
 import express from "express"
-import { createRestaurantController, deleteVendorRes, getVendorRestaurant } from "../controller/restaurantController.js"
+import { createRestaurantController, deleteVendorRes, getVendorRestaurant, updateVendorRestaurant, vendorRestaurantStatus } from "../controller/restaurantController.js"
 import { authMiddleware } from "../middleware/auth.js"
 const restaurantRouter = express.Router()
 
@@ -11,6 +11,13 @@ restaurantRouter.post("/create-restaurant", authMiddleware, createRestaurantCont
 restaurantRouter.get("/vendor-restaurant", authMiddleware, getVendorRestaurant)
 // SOFT DELETE
 restaurantRouter.delete("/vendor-restaurant/:id", authMiddleware, deleteVendorRes)
+
+// edit DELETE
+restaurantRouter.put("/vendor-restaurant/:id", authMiddleware, updateVendorRestaurant)
+
+restaurantRouter.patch("/vendor-restaurant-status/:id" , authMiddleware , vendorRestaurantStatus)
+
+
 
 
 export default restaurantRouter

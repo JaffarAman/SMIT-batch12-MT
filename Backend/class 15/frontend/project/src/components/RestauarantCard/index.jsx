@@ -21,7 +21,9 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils';
 import Cookies from 'js-cookie';
 
-export default function RestaurantCard({ restaurant }) {
+
+export default function RestaurantCard({ restaurant, isRefresh
+    , setIsRefresh, setEditRestaurantModal, setSelectRestaurant }) {
     const {
         restaurantName,
         details,
@@ -36,11 +38,30 @@ export default function RestaurantCard({ restaurant }) {
 
     const deleteHandler = async (id) => {
         console.log("id", id)
-        await axios.delete(`${BASE_URL}/vendor-restaurant/${id}`, {
+        await axios.delete(`${BASE_URL}/restaurant/vendor-restaurant/${id}`, {
             headers: {
                 Authorization: `Bearer ${Cookies.get("token")} `
             }
         })
+        setIsRefresh(!isRefresh)
+    }
+
+    const statusHandler = async () => {
+        console.log("isOpen", isOpen)
+        const id = restaurant._id
+        const updateObj = {
+            isOpen: !isOpen
+        }
+        const res = await axios.patch(`${BASE_URL}/restaurant/vendor-restaurant-status/${id}`, updateObj, {
+            headers: {
+                Authorization: `Bearer ${Cookies.get("token")} `
+            }
+        })
+        if (!res.data.status) {
+            return alert(res.data.message)
+        }
+        setIsRefresh(!isRefresh)
+
     }
 
     return (
@@ -53,7 +74,13 @@ export default function RestaurantCard({ restaurant }) {
                     </Stack>
                     <Box>
                         <DeleteIcon onClick={() => deleteHandler(restaurant._id)} />
-                        <EditIcon />
+                        <EditIcon
+                            // onClick={() => }
+                            onClick={() => {
+                                setSelectRestaurant(restaurant)
+                                setEditRestaurantModal(true)
+                            }}
+                        />
                     </Box>
                 </Stack>
 
@@ -86,7 +113,9 @@ export default function RestaurantCard({ restaurant }) {
             </CardContent>
 
             <CardActions>
-                <Button size="small" variant="outlined" color={isOpen ? 'success' : 'error'}>
+                <Button onClick={() => {
+                    statusHandler()
+                }} size="small" variant="outlined" color={isOpen ? 'success' : 'error'}>
                     {isOpen ? 'Open' : 'Closed'}
                 </Button>
                 <Button size="small" variant="contained" color="primary">

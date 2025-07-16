@@ -6,12 +6,23 @@ import axios from 'axios'
 import { BASE_URL } from '../../../utils'
 import Cookies from 'js-cookie'
 import RestaurantCard from '../../../components/RestauarantCard'
+import EditRestaurantModal from '../../../components/Modals/EditRestaurant'
 
 const Restaurant = () => {
 
+    // ADD MODAL
     const [restaurantModal, setRestaurantModal] = useState(false)
+
+
+    // EDIT MODAL
+    const [editRestaurantModal, setEditRestaurantModal] = useState(false)
+
     const [restaurants, setRestaurants] = useState([])
     const [isRefresh, setIsRefresh] = useState(false)
+
+    const [selectRestaurant, setSelectRestaurant] = useState({})
+    console.log("selectRestaurant", selectRestaurant)
+
 
     useEffect(() => {
         fetchData()
@@ -19,7 +30,7 @@ const Restaurant = () => {
 
     const fetchData = async () => {
         try {
-            const res = await axios.get(`${BASE_URL}/vendor-restaurant`, {
+            const res = await axios.get(`${BASE_URL}/restaurant/vendor-restaurant`, {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("token")} `
                 }
@@ -41,9 +52,14 @@ const Restaurant = () => {
 
             <Stack mt={5} flexDirection={"row"} gap={5} flexWrap={"wrap"} >
                 {
-                    restaurants.map((restaurant) => {
+                    restaurants.map((restaurantObj) => {
                         return (
-                            <RestaurantCard restaurant={restaurant} />
+                            <RestaurantCard restaurant={restaurantObj}
+                                isRefresh={isRefresh}
+                                setIsRefresh={setIsRefresh}
+                                setEditRestaurantModal={setEditRestaurantModal}
+                                setSelectRestaurant={setSelectRestaurant}
+                            />
                         )
                     })
                 }
@@ -58,6 +74,17 @@ const Restaurant = () => {
                 isRefresh={isRefresh}
                 setIsRefresh={setIsRefresh}
             />
+
+
+         { editRestaurantModal &&  <EditRestaurantModal
+                open={editRestaurantModal}
+                setOpen={setEditRestaurantModal}
+                isRefresh={isRefresh}
+                setIsRefresh={setIsRefresh}
+                selectRestaurant={selectRestaurant}
+            />}
+
+
 
 
 

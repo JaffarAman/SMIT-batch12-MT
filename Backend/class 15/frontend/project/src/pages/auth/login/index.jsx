@@ -13,6 +13,7 @@ import { Controller, useForm } from 'react-hook-form';
 import axios from 'axios';
 import { BASE_URL } from '../../../utils';
 import Cookies from "js-cookie"
+import apiEndPoints from '../../../constant/apiEndpoint';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -33,22 +34,22 @@ const Login = () => {
         }
     })
 
-    const navigate  = useNavigate()
+    const navigate = useNavigate()
     const onSubmit = async (obj) => {
         try {
-            const response = await axios.post(`${BASE_URL}/login`, obj)
+            const response = await axios.post(`${BASE_URL}${apiEndPoints.login}`, obj)
             console.log("response", response.data.status)
-            if(!response.data.status){
-                console.log("error" , response.data.message )
+            if (!response.data.status) {
+                console.log("error", response.data.message)
                 throw response.data.message
             }
 
-            Cookies.set("token" , response.data.token)
+            Cookies.set("token", response.data.token)
             navigate("/admindashboard")
-            console.log(":status" , response.data.status)
+            console.log(":status", response.data.status)
 
         } catch (error) {
-            console.log("error" , error)
+            console.log("error", error)
         }
     }
 

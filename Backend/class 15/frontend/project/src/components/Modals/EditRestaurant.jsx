@@ -31,7 +31,9 @@ const style = {
 
 const categories = ['Italian', 'Chinese', 'Indian', 'Mexican', 'Thai', 'Other'];
 
-export default function AddRestaurantModal({ open, setOpen, isRefresh, setIsRefresh }) {
+export default function EditRestaurantModal({ open, setOpen, isRefresh, setIsRefresh, selectRestaurant }) {
+
+
     const handleClose = () => setOpen(false);
     const [form, setForm] = React.useState({
         name: '',
@@ -72,8 +74,18 @@ export default function AddRestaurantModal({ open, setOpen, isRefresh, setIsRefr
 
     const onSubmit = async (obj) => {
         console.log("obj", obj)
+        const updateObj = {
+            address: obj.address,
+            category: obj.category,
+            contactNumber: obj.contactNumber,
+            details: obj.details,
+            email: obj.email,
+            restaurantName: obj.restaurantName
+        }
         try {
-            const response = await axios.post(`${BASE_URL}/restaurant/create-restaurant`, obj, {
+            // const id = //selectRestaurant._id
+            const id = obj._id
+            const response = await axios.put(`${BASE_URL}/restaurant/vendor-restaurant/${id}`, updateObj, {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("token")} `
                 }
@@ -88,6 +100,14 @@ export default function AddRestaurantModal({ open, setOpen, isRefresh, setIsRefr
 
         }
     }
+
+    console.log("selectRestaurant model", selectRestaurant)
+
+    React.useEffect(() => {
+
+        reset(selectRestaurant)
+
+    }, [])
 
     return (
         <div>
@@ -107,7 +127,7 @@ export default function AddRestaurantModal({ open, setOpen, isRefresh, setIsRefr
                 <Fade in={open}>
                     <Box sx={style}>
                         <Stack direction="row" justifyContent="space-between" alignItems="center">
-                            <Typography variant="h5">Create Restaurant</Typography>
+                            <Typography variant="h5">EDIT Restaurant</Typography>
                             <ClearIcon onClick={handleClose} sx={{ cursor: 'pointer' }} />
                         </Stack>
                         <Divider sx={{ my: 2 }} />
@@ -204,7 +224,7 @@ export default function AddRestaurantModal({ open, setOpen, isRefresh, setIsRefr
                             )}
 
                             <Button variant="contained" color="primary" onClick={handleSubmit(onSubmit)}>
-                                Submit
+                                EDIT
                             </Button>
                         </Stack>
                     </Box>

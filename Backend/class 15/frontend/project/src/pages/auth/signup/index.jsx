@@ -63,7 +63,7 @@ const SignupPage = () => {
         try {
             obj.type = "admin"
             console.log("obj", obj)
-            const response = await axios.post(`${BASE_URL}/signup`, obj)
+            const response = await axios.post(`${BASE_URL}/auth/signup`, obj)
             console.log("response", response)
             navigate("/")
 
