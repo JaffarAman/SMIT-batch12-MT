@@ -25,7 +25,8 @@ const schema = new mongoose.Schema({
     isDeleted: {
         type: Boolean,
         default: false
-    }
+    },
+    imageUrl : String
 })
 
 const RestaurantModel = mongoose.model("restaurant", schema)

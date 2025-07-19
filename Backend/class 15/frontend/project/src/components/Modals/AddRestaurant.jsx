@@ -16,6 +16,7 @@ import { Controller, useForm } from 'react-hook-form';
 import axios from 'axios';
 import { BASE_URL } from '../../utils';
 import Cookies from 'js-cookie';
+import apiEndPoints from '../../constant/apiEndpoint';
 
 const style = {
     position: 'absolute',
@@ -33,22 +34,11 @@ const categories = ['Italian', 'Chinese', 'Indian', 'Mexican', 'Thai', 'Other'];
 
 export default function AddRestaurantModal({ open, setOpen, isRefresh, setIsRefresh }) {
     const handleClose = () => setOpen(false);
-    const [form, setForm] = React.useState({
-        name: '',
-        details: '',
-        contact: '',
-        address: '',
-        email: '',
-        logo: null,
-        category: '',
-    });
+    const [logoImage, setLogoImage] = React.useState()
 
     const handleChange = (e) => {
-        const { name, value, files } = e.target;
-        setForm((prev) => ({
-            ...prev,
-            [name]: files ? files[0] : value,
-        }));
+        console.log(e.target.files[0])
+        setLogoImage(e.target.files[0])
     };
 
     //   const handleSubmit = () => {
@@ -73,7 +63,30 @@ export default function AddRestaurantModal({ open, setOpen, isRefresh, setIsRefr
     const onSubmit = async (obj) => {
         console.log("obj", obj)
         try {
-            const response = await axios.post(`${BASE_URL}/restaurant/create-restaurant`, obj, {
+
+            let imageUrl;
+            if (logoImage) {
+                console.log("image uploading....", logoImage)
+                const api = `${BASE_URL}${apiEndPoints.uploadImage}`
+                const formData = new FormData()
+                formData.append("image", logoImage)
+
+                const imageRes = await axios.post(api, formData, {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                        "Authorization": `Bearer ${Cookies.get("token")}`
+                    }
+                })
+                console.log("imageRes", imageRes)
+                imageUrl = imageRes.data.url
+            }
+
+            const objToSend = {
+                ...obj,
+                imageUrl: imageUrl || null
+            }
+
+            const response = await axios.post(`${BASE_URL}/restaurant/create-restaurant`, objToSend, {
                 headers: {
                     Authorization: `Bearer ${Cookies.get("token")} `
                 }
@@ -197,9 +210,10 @@ export default function AddRestaurantModal({ open, setOpen, isRefresh, setIsRefr
                                 />
                             </Button>
 
-                            {form.logo && (
+
+                            {logoImage && (
                                 <Typography variant="body2" color="text.secondary">
-                                    Selected file: {form.logo.name}
+                                    Selected file: {logoImage.name}
                                 </Typography>
                             )}
 

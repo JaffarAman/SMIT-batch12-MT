@@ -1,6 +1,7 @@
 const apiEndPoints = {
     login : "/auth/login",
-    signup : "/auth/signup"
+    signup : "/auth/signup",
+    uploadImage : "/image/upload"
 }
 
 
