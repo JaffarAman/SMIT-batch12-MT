@@ -6,6 +6,7 @@ import restaurantRouter from "./routes/restaurant.js"
 import { dbConnection } from "./config/db.js"
 import { cloudinaryConfig } from "./config/cloudinary.js"
 import uploadImage from "./routes/uploadImage.js"
+import adminRoute from "./routes/admin.js"
 dotenv.config()
 
 const app = express()
@@ -21,6 +22,7 @@ dbConnection()
 app.use("/api/auth", authRouter)
 app.use("/api/restaurant", restaurantRouter)
 app.use("/api/image", uploadImage)
+app.use("/api/admin", adminRoute)
 
 
 app.get("/", (request, response) => {

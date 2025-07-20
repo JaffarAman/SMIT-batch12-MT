@@ -1,5 +1,5 @@
 import express from "express"
-import { createRestaurantController, deleteVendorRes, getVendorRestaurant, updateVendorRestaurant, vendorRestaurantStatus } from "../controller/restaurantController.js"
+import { createRestaurantController, deleteVendorRes, dropdownRestaurant, getVendorRestaurant, updateVendorRestaurant, vendorRestaurantStatus } from "../controller/restaurantController.js"
 import { authMiddleware } from "../middleware/auth.js"
 const restaurantRouter = express.Router()
 
@@ -17,6 +17,7 @@ restaurantRouter.put("/vendor-restaurant/:id", authMiddleware, updateVendorResta
 
 restaurantRouter.patch("/vendor-restaurant-status/:id" , authMiddleware , vendorRestaurantStatus)
 
+restaurantRouter.get("/dropdown-restaurant" ,  authMiddleware , dropdownRestaurant  )
 
 
 

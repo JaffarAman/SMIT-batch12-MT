@@ -113,3 +113,21 @@ export const vendorRestaurantStatus = async (req, res) => {
 
 
 }
+
+
+export const dropdownRestaurant = async (req, res) => {
+    const userId = req.user.id
+    const filter = {
+        createBy: userId,
+        isApproved: true,
+        isDeleted: false
+    }
+
+    const data = await RestaurantModel.find(filter)
+    res.json({
+        status: true,
+        message: "fetch all approved restaurant",
+        data
+    })
+
+}

@@ -45,7 +45,15 @@ const Login = () => {
             }
 
             Cookies.set("token", response.data.token)
-            navigate("/admindashboard")
+            if (response.data.data.type == "admin") {
+                navigate("/admin-dashboard")
+
+            } else if (response.data.data.type == "vendor") {
+                navigate("/vendor-dashboard")
+            } else if (response.data.data.type == "user") {
+                navigate("/user-dashboard")
+            }
+
             console.log(":status", response.data.status)
 
         } catch (error) {

@@ -55,6 +55,12 @@ export const signupController = async (request, response) => {
 export const loginController = async (req, res) => {
     try {
         const body = req.body
+        if (!body.email || !body.password) {
+            return res.json({
+                message: "required field are missing"
+            })
+        }
+
         console.log("body", body)
         const user = await UserModel.findOne({ email: body.email })
         console.log("user", user)
