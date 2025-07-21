@@ -1,7 +1,9 @@
 import bcrypt from "bcryptjs"
 import UserModel from "../schema/User.js"
 import jwt from "jsonwebtoken"
-
+import nodemailer from "nodemailer"
+import { text } from "express"
+import { SignupEmailTemplate } from "../templates/emailTemplate.js"
 
 
 export const signupController = async (request, response) => {
@@ -28,17 +30,36 @@ export const signupController = async (request, response) => {
         console.log("USER CREATED")
 
         //SEND EMAIL 
-        // const transporter = nodemailer.createTransport({
-        //     service: "Gmail",
-        //     host: "smtp.gmail.com",
-        //     port: 465,
-        //     secure: true,
-        //     auth: {
-        //         user: process.env.EMAIL,
-        //         pass: "your_app_password",
-        //     },
-        // });
+        const transporter = nodemailer.createTransport({
+            service: "Gmail",
+            host: "smtp.gmail.com",
+            port: 465,
+            secure: true,
+            auth: {
+                user: process.env.EMAIL,
+                pass: process.env.APP_PASSWORD,
+            },
+        });
 
+        const otp = Math.floor(100000 + Math.random() * 900000);
+
+
+        const mailOptions = {
+            from: process.env.EMAIL,
+            to: process.env.EMAIL,
+            subject: "User Signup",
+            html: SignupEmailTemplate(userObj, otp)
+        };
+
+        await transporter.sendMail(mailOptions)
+
+            // Maintain OTP COllecton
+            
+            // {
+            //     otp,
+            //     email,
+            //     isUsed
+            // }
 
         response.json({
             message: "USER SIGNUP SUCCESSFULLY!"

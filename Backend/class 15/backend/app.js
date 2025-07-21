@@ -7,6 +7,10 @@ import { dbConnection } from "./config/db.js"
 import { cloudinaryConfig } from "./config/cloudinary.js"
 import uploadImage from "./routes/uploadImage.js"
 import adminRoute from "./routes/admin.js"
+import cron from "node-cron"
+import UserModel from "./schema/User.js"
+import nodemailer from "nodemailer"
+import { welcomeTemplate } from "./templates/welcomeTemplate.js"
 dotenv.config()
 
 const app = express()
@@ -30,5 +34,55 @@ app.get("/", (request, response) => {
 
 })
 
+
+async function foo() {
+    const start = new Date();
+    start.setHours(0, 0, 0, 0); // today at midnight
+
+    const end = new Date();
+    end.setHours(24, 0, 0, 0); // tomorrow at midnight
+
+
+
+    const userData = await UserModel.find({
+        createdAt: {
+            $gte: start,
+            $lt: end
+        }
+    })
+    console.log("userData", userData)
+    
+    const transporter = nodemailer.createTransport({
+        service: "Gmail",
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+            user: process.env.EMAIL,
+            pass: process.env.APP_PASSWORD,
+        },
+    });
+    userData.forEach(async (user) => {
+
+
+
+        const mailOptions = {
+            from: process.env.EMAIL,
+            to: user.email,
+            subject: "",
+            html: welcomeTemplate(user)
+        };
+
+        await transporter.sendMail(mailOptions)
+    })
+
+
+
+
+
+
+}
+// foo()
+// cron.schedule('*/2 * * * * ', foo);
 
 app.listen(PORT, () => console.log(`server running on http://localhost:${PORT}`))
