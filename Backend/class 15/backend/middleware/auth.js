@@ -13,7 +13,7 @@ export const authMiddleware = async (req, res, next) => {
             req.user = isVerify
             next()
         } else {
-            res.json({
+            res.status(401).json({
                 message: "unAuthorization user"
             })
         }
@@ -40,7 +40,7 @@ export const adminAuthMiddleware = async (req, res, next) => {
             console.log("user", user)
 
             if (user.type !== "admin") {
-                return res.json({
+                return res.status(403).json({
                     message: "Only Admin can access this API!",
                     status: false
                 })
@@ -49,12 +49,12 @@ export const adminAuthMiddleware = async (req, res, next) => {
             next()
 
         } else {
-            res.json({
+            res.status(401).json({
                 message: "unAuthorization user"
             })
         }
     } catch (error) {
-        res.json({
+        res.status(401).json({
             message: "unAuthorization user"
         })
     }

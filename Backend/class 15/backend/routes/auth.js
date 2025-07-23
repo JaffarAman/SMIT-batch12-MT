@@ -1,5 +1,5 @@
 import express from "express"
-import { loginController, signupController } from "../controller/authController.js"
+import { loginController, OTPVerifyController, signupController } from "../controller/authController.js"
 import rateLimit from "express-rate-limit";
 
 const authRouter = express.Router()
@@ -16,6 +16,7 @@ const limiter = rateLimit({
 
 authRouter.post("/signup", signupController)
 authRouter.post("/login", limiter, loginController)
+authRouter.post("/otp-verification", OTPVerifyController)
 
 
 

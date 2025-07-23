@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken"
 import nodemailer from "nodemailer"
 import { text } from "express"
 import { SignupEmailTemplate } from "../templates/emailTemplate.js"
+import OTPModel from "../schema/otp.js"
 
 
 export const signupController = async (request, response) => {
@@ -46,20 +47,25 @@ export const signupController = async (request, response) => {
 
         const mailOptions = {
             from: process.env.EMAIL,
-            to: process.env.EMAIL,
+            to: userObj.email,
             subject: "User Signup",
             html: SignupEmailTemplate(userObj, otp)
         };
 
-        await transporter.sendMail(mailOptions)
+        const userEmail = await transporter.sendMail(mailOptions)
+        console.log("userEmail", userEmail)
+        // Maintain OTP COllecton
 
-            // Maintain OTP COllecton
-            
-            // {
-            //     otp,
-            //     email,
-            //     isUsed
-            // }
+        await OTPModel.create({
+            otp,
+            email: userObj.email
+        })
+
+        // {
+        //     otp,
+        //     email,
+        //     isUsed
+        // }
 
         response.json({
             message: "USER SIGNUP SUCCESSFULLY!"
@@ -77,7 +83,7 @@ export const loginController = async (req, res) => {
     try {
         const body = req.body
         if (!body.email || !body.password) {
-            return res.json({
+            return res.status(400).json({
                 message: "required field are missing"
             })
         }
@@ -86,7 +92,7 @@ export const loginController = async (req, res) => {
         const user = await UserModel.findOne({ email: body.email })
         console.log("user", user)
         if (!user) {
-            return res.json({
+            return res.status(400).json({
                 message: "INVALID EMAIL OR PASSWORD",
                 status: false
             })
@@ -116,7 +122,41 @@ export const loginController = async (req, res) => {
 
 
     } catch (error) {
-
+        res.status(500).json({
+            message: "Internal server error"
+        })
     }
 
+}
+
+
+export const OTPVerifyController = async (req, res) => {
+    try {
+        const { otp, email } = req.body
+
+        const otpRes = await OTPModel.findOne({ email, otp, isUsed: false })
+        console.log("otpRes", otpRes)
+
+        if (!otpRes) {
+            return res.json({
+                message: "OTP InValid",
+                status: false
+            })
+        }
+
+        otpRes.isUsed = true
+        await otpRes.save()
+
+        await UserModel.findOneAndUpdate({ email }, { isVerified: true })
+
+        res.json({
+            message: "Account verified",
+            status: true
+        })
+
+
+
+    } catch (error) {
+        console.log("error", error.message)
+    }
 }

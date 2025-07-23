@@ -65,7 +65,12 @@ const SignupPage = () => {
             console.log("obj", obj)
             const response = await axios.post(`${BASE_URL}/auth/signup`, obj)
             console.log("response", response)
-            navigate("/")
+            navigate("/otp-verify", {
+                state: {
+                    email: obj.email,
+                    page :"signup"
+                }
+            })
 
         } catch (error) {
             console.log("error", error.message)
@@ -92,7 +97,7 @@ const SignupPage = () => {
                         render={({ field, formState: { errors } }) => <TextField
                             label="Full Name"
                             variant="outlined"
-                            required
+
                             {...field}
                         />}
                     />
@@ -102,7 +107,7 @@ const SignupPage = () => {
                         render={({ field, formState: { errors } }) => <TextField
                             label="Email"
                             variant="outlined"
-                            required
+
                             {...field}
                         />}
                     />
@@ -114,7 +119,7 @@ const SignupPage = () => {
                         render={({ field, formState: { errors } }) => <TextField
                             label="Password"
                             variant="outlined"
-                            required
+
                             {...field}
                         />}
                     />
@@ -125,7 +130,7 @@ const SignupPage = () => {
                         render={({ field, formState: { errors } }) => <TextField
                             label="Phone Number"
                             variant="outlined"
-                            required
+
                             {...field}
                         />}
                     />
@@ -137,7 +142,7 @@ const SignupPage = () => {
                         render={({ field, formState: { errors } }) => <TextField
                             label="Gender"
                             variant="outlined"
-                            required
+
                             {...field}
                         />}
                     />
@@ -148,7 +153,7 @@ const SignupPage = () => {
                         render={({ field, formState: { errors } }) => <TextField
                             label="Date of Birth"
                             variant="outlined"
-                            required
+
                             {...field}
                         />}
                     />
